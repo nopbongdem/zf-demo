@@ -1,0 +1,29 @@
+
+<?php if ($this->pageCount): ?>
+    <div class="pagination pagination-small" align="right">
+        <ul>
+            <?php if (isset($this->previous)): ?>
+                <li class="none"><a href="<?php echo $this->url(array('page' => '1')) . $this->currentUrl; ?>"><i class="icon-backward"></i></a></li>
+                <li class="none"><a href="<?php echo $this->url(array('page' => $this->previous)) . $this->currentUrl; ?>"><i class="icon-chevron-left"></i></a></li>
+            <?php else: ?>
+                <li class="active"><a href="#"><i class="icon-backward"></i></a></li>
+                <li class="active"><a href="#"><i class="icon-chevron-left"></i></a></li>
+            <?php endif; ?>
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php if ($page != $this->current): ?>
+                    <li class="none"><a href="<?php echo $this->url(array('page' => $page)) . $this->currentUrl ?>"><?php echo $page; ?></a></li>
+                <?php else: ?>                    
+                    <li class="active"><a href="#"><?php echo $page; ?></a></li>
+                <?php endif; ?>
+            <?php endforeach; ?>            
+
+            <?php if (isset($this->next)): ?>
+                <li class="none"><a href="<?php echo $this->url(array('page' => $this->next)) . $this->currentUrl; ?>"><i class="icon-chevron-right"></i></a></li>
+                <li class="none"><a href="<?php echo $this->url(array('page' => $this->pageCount)) . $this->currentUrl; ?>"><i class="icon-forward"></i></a></li>
+            <?php else: ?>
+                <li class="active"><a href="#"><i class="icon-chevron-right"></i></a></li>
+                <li class="active"><a href="#"><i class="icon-forward"></i></a></li>
+                    <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>

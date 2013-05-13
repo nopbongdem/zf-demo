@@ -1,0 +1,11 @@
+<?php
+
+// tùy vào $this->container mà viết 1 vòng đệ qui để lấy ra, ở đây mình chỉ đưa ra 1 vd đơn giản khi menu 1 cấp.
+
+    foreach ($this->container as $page)
+    {
+       //print_r( $page); // print ra để thấy được kết quả và xữ lý theo ý muốn.
+        echo '<li class="' . $page->class. '"><a href="' . $page->href . '">'.$page->label . '</a></li>', PHP_EOL;
+    }
+
+?>

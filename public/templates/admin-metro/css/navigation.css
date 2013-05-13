@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Segoe UI;
+    font-size: 16px;
+}
+
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+ul.navigation-hozital{
+    display: inline-block;	
+}
+
+ul.navigation-hozital li a{
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+    white-space: nowrap;
+}
+
+ul.navigation-hozital > li{
+    margin: 0 1px;
+    padding: 8px 15px;
+}
+
+ul.navigation-hozital li{	
+    background-color: #464646;
+    display: block;	
+
+    float: left;
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+ul.navigation-hozital > li.list-child,
+ul.navigation-hozital > li.list-child:hover{
+    background-image: url("../img/arrow-bottom.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+ul.navigation-hozital ul li.list-child{
+    background-image: url("../img/arrow-right.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+ul.navigation-hozital li ul{		
+    display: none;    
+}
+
+ul.navigation-hozital ul{
+    width: 175px;
+    white-space: nowrap;
+}
+
+ul.navigation-hozital li ul li{
+    width: 100%;	
+    background: #FAFAFA;
+}
+
+ul.navigation-hozital li ul li:hover{
+    background: #E5EcF9;
+}
+
+ul.navigation-hozital li ul li a{
+    padding: 6px 15px;
+    color: #222;
+}
+
+ul.navigation-hozital ul ul{
+    border: 1px solid #DDD;
+    display: none;
+}
+
+ul.navigation-hozital > li > ul{    
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    top: 36px;
+    left: 0;    
+    display: none;
+    position: absolute;
+    z-index: 999;
+}
+
+ul.navigation-hozital li ul li ul{	
+    top: 0;
+    left: 175px;
+    position: absolute;	    
+}
+
+ul.navigation-hozital li:hover{
+    background: #0066CC;
+}
+
+ul.navigation-hozital > li:hover > ul,
+ul.navigation-hozital > li > ul > li:hover > ul,
+ul.navigation-hozital > li > ul > li > ul > li:hover > ul,
+ul.navigation-hozital > li > ul > li > ul > li > ul > li:hover > ul,
+ul.navigation-hozital > li > ul > li > ul > li > ul > li > ul > li:hover > ul,
+ul.navigation-hozital > li > ul > li > ul > li > ul > li > ul > li > ul > li:hover > ul{
+    display: block;
+}
+
+

@@ -1,0 +1,33 @@
+<?php echo $this->doctype('HTML5') ?>
+<html>
+    <head>
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headScript() ?>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>        
+        <?php
+        echo $this->navigation()->menu();
+        //echo $this->navigation()->sitemap();
+        echo $this->navigation()->breadcrumbs();
+        //echo '<pre>';
+        // print_r($this->navigation()->breadcrumbs());
+        //echo '</pre>';
+        //echo $this->navigation()->breadcrumbs()->setLinkLast(true)->setMinDepth(0);
+        //echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" : ");
+        /* $navigation = Zend_Registry::get('navigation');
+          echo $this->navigation($navigation)->menu();
+          $xml= $this->navigation($navigation)->sitemap()
+          ->setFormatOutput(true)
+          ->setRole();;
+
+         */
+        ?>
+        <?php //echo $this->navigation() ?>
+        <?php echo $this->layout()->content ?>
+    </body>
+</html>
+﻿
+

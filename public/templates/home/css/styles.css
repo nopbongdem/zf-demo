@@ -1,0 +1,69 @@
+/* 
+    Version    : 1.0.1
+    Document   : styles
+    Created on : 09-05-2013, 23:30:07
+    Author     : Chacbumbum
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@font-face{
+    font-family: 'Segoe UI';
+    src: url('../font/Segoe/segoeui.ttf');
+    src:url('../font/Segoe/segoeui.ttf') format('ttf'),
+        url('../font/Segoe/segoeui.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Segoe UI Light';
+    src: url('../font/Segoe/segoeuili.ttf');
+    src:url('../font/Segoe/segoeuili.ttf') format('ttf'),
+        url('../font/Segoe/segoeuili.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+root { 
+    display: block;
+}
+
+.error-container{
+    color: #333;
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Segoe UI", "Seoge UI Light";
+    font-weight: 300;
+}
+
+.error-container a.back{
+    color: #0066CC;
+    font-weight: bold;
+    margin: 20px 0;
+    display: block;
+    text-decoration: none;
+}
+
+.wrapper-error{
+    border-top: 2px solid #00234c;    
+    color: #333;
+}
+.error-msg{
+    color: #333333;
+    font-family: "Segoe UI";
+}
+
+pre{
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 4px 4px;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0 0 10px;
+    padding: 9.5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}

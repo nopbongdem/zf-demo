@@ -1,0 +1,25 @@
+<table class="table">
+    <tr>
+        <th>Permissions</th>
+        <th>Name</th>
+        <th>Module</th>
+        <th>Controller</th>
+        <th>Action</th>
+    </tr>
+    <?php
+    foreach ($this->list as $item) {
+        ?>
+        <tr>
+            <td><?php echo $item['note']; ?></td>
+            <td><?php echo $item['name'] ?></td>
+            <td><?php echo $item['module'] ?></td>
+            <td><?php echo $item['controller'] ?></td>
+            <td><?php echo $item['action'] ?></td>            
+        </tr>
+        <?php
+    }
+    ?>
+
+
+
+</table>

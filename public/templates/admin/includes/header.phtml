@@ -1,0 +1,48 @@
+<?php
+$filename = APPLICATION_PATH . "/../public/templates/admin/admin.ini";
+$config = new Zend_Config_Ini($filename, "template");
+
+$templateUrl = $this->baseUrl() . $config->url;
+$cssUrl = $templateUrl . $config->dirCss;
+$jsUrl = $templateUrl . $config->dirJs;
+//$imgUrl = $templateUrl . $config->dirImg;
+
+$this->headTitle($config->title);
+
+if (count($config->metaHttp) > 0) {
+    foreach ($config->metaHttp as $key => $value) {
+        $tmp = explode("|", $value);
+        $this->headMeta()->appendHttpEquiv($tmp[0], $tmp[1]);
+    }
+}
+
+if (count($config->metaName) > 0) {
+    foreach ($config->metaName as $key => $value) {
+        $tmp = explode("|", $value);
+        $this->headMeta()->appendName($tmp[0], $tmp[1]);
+    }
+}
+
+if (count($config->fileCss) > 0) {
+    foreach ($config->fileCss as $key => $css) {
+        $this->headLink()->appendStylesheet($cssUrl . $css, 'screen');
+    }
+}
+
+if (count($config->fileJs) > 0) {
+    foreach ($config->fileJs as $key => $js) {
+        $this->headScript()->appendFile($jsUrl . $js, 'text/javascript');
+    }
+}
+?>
+
+<?php echo $this->doctype(); ?>  
+<html>  
+    <head>                  
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headLink() ?>  
+        <?php echo $this->headStyle() ?>  
+        <?php echo $this->headScript() ?>          
+    </head>  
+    <body>        

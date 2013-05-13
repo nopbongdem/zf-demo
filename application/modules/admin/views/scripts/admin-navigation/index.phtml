@@ -1,0 +1,167 @@
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        /* The output is ment to update the nestableMenu-output textarea
+         * So this could probably be rewritten a bit to only run the menu_updatesort function onchange
+         */
+
+        var updateOutput = function(e) {
+            var url = "<?php echo $this->currentController; ?>";
+            var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+                menu_updatesort(url, window.JSON.stringify(list.nestable('serialize')));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+
+        // activate Nestable for list menu
+        $('#nestableMenu').nestable({
+            group: 1
+        }).on('change', updateOutput);
+
+
+
+        // output initial serialised data
+        updateOutput($('#nestableMenu').data('output', $('#nestableMenu-output')));
+
+        $('#nestable-menu').on('click', function(e)
+        {
+            var target = $(e.target),
+                    action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });
+
+        $('#nestable3').nestable();
+
+    });
+</script>
+<?php
+$navigation = new Nop_Db_Table_Navigation();
+$liParent = $navigation->getByParentId(0);
+$url = $this->currentController;
+global $translate;
+$translate = $this->translate;
+
+function nav($parentID, $url) {
+    global $translate;
+    $navigation = new Nop_Db_Table_Navigation();
+    $result = $navigation->showMenus($parentID);
+    if (count($result) > 0) {
+        ?>    
+        <ol class="dd-list">
+            <?php
+            foreach ($result as $row) {
+                ?>
+
+                <li id="menu<?php echo $row['id'] ?>" class="dd-item" data-id="<?php echo $row['id'] ?>">
+                    <?php
+                    if ($row['status'] == 1) {
+                        ?>
+                        <p class="right" onclick="status(<?php echo $row['id'] ?>);"><i id="img-status<?php echo $row['id'] ?>" class="front-on"></i></p>
+
+                    <?php } elseif ($row['status'] == 0) { ?>
+                        <p class="right" onclick="status(<?php echo $row['id'] ?>);"><i id="img-status<?php echo $row['id'] ?>" class="front-off"></i></p>
+                    <?php } ?>
+                    <p class="right" id="delete" onclick="check_del(<?php echo $row['id'] ?>);"><i class="icon-trash"></i></p>
+                    <a class="right" id="delete" href="<?php echo $url . '/edit/id/' . $row['id']; ?>"><i class="icon-pencil"></i></a>
+                    <div class="dd-handle"><?php echo $row['id'] . ":" . $translate->_($row['name']); ?></div>
+                    <?php
+                    nav($row['id'], $url);
+                    ?>
+                </li>
+                <?php
+            }
+            ?>
+        </ol>
+        <?php
+    }
+}
+?>
+
+<div class="cf nestable-lists">
+    <div class="dd" id="nestableMenu">
+        <ol class="dd-list">
+            <?php
+            foreach ($liParent as $row) {
+                ?>
+
+                <li id="menu<?php echo $row['id']; ?>" class="dd-item" data-id="<?php echo $row['id'] ?>">
+                    <?php if ($row['status'] == 1) { ?>
+                        <p class="right" onclick="status(<?php echo $row['id']; ?>);"><i id="img-status<?php echo $row['id'] ?>" class="front-on"></i></p>
+                    <?php } elseif ($row['status'] == 0) { ?>
+                        <p class="right" onclick="status(<?php echo $row['id']; ?>);"><i id="img-status<?php echo $row['id'] ?>" class="front-off"></i></p>
+                    <?php } ?> 
+                    <p class="right" id="delete" onclick="check_del(<?php echo $row['id']; ?>);"><i class="icon-trash"></i></p>
+                    <a class="right" id="delete" href='<?php echo $this->url(array("action" => "edit", "id" => $row['id'])); ?>'><i class="icon-pencil"></i></a>
+                    <div class="dd-handle">
+                        <?php echo $row['id'] . ":" . $this->translate->_($row['name']); ?>
+
+                    </div>
+
+                    <?php
+                    nav($row['id'], $url);
+                    ?>
+
+                </li>
+                <?php
+            }
+            ?>
+        </ol>
+    </div>
+</div>
+
+
+<div id="sortDBfeedback" style="border:1px solid #eaeaea; padding:10px; margin:15px;"></div>
+
+<script>
+
+    function check_del(id) {
+        if (confirm('Do you want delete this category ?')) {
+            var del = '<?php echo $this->currentController . '/del'; ?>';
+            $(document).ready(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: del,
+                    data: {data: id},
+                    success: result
+                });
+                function result() {
+                    $('#menu' + id).fadeOut('slow');
+                }
+            });
+        }
+        return false;
+    }
+
+    function status(id) {
+        var onoff = '<?php echo $this->baseUrl() . $this->currentController . "/active"; ?>';
+        $(document).ready(function() {
+            $.ajax({
+                type: 'POST', url: onoff,
+                data: {id: id},
+                success: result
+            });
+            function result(data) {
+                //alert(data);
+                if (data['active'] === 'off') {
+                    $('#img-status' + id).removeClass('front-on');
+                    $('#img-status' + id).addClass('front-off');
+                }
+                if (data['active'] === 'on') {
+                    $('#img-status' + id).removeClass('front-off');
+                    $('#img-status' + id).addClass('front-on');
+                }
+            }
+        });
+    }
+</script>
+

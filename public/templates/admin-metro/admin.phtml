@@ -1,0 +1,12 @@
+<?php echo $this->render("includes/header.phtml"); ?>  
+<?php echo $this->render("includes/loading.phtml"); ?>  
+<section class="admin-wrapper">    
+
+    <?php echo $this->render("includes/left_bar.phtml"); ?>  
+    <?php echo $this->render("includes/right_bar.phtml"); ?>
+    <div class="admin-content">
+        <?php echo $this->layout()->content ?>              
+    </div>
+
+</section>
+<?php echo $this->render("includes/footer.phtml"); ?>  

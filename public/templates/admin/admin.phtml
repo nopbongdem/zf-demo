@@ -1,0 +1,10 @@
+<?php echo $this->render("includes/header.phtml"); ?>  
+<div class="container">
+    <?php
+    $menu = $this->navigation()->menu();
+    $vertical = $menu->setUlClass('navigation-menu');
+    echo $vertical;
+    ?>
+    <?php echo $this->layout()->content ?>              
+</div>
+<?php echo $this->render("includes/footer.phtml"); ?>  

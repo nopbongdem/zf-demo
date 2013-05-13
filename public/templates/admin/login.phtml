@@ -1,0 +1,62 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">        
+        <?php echo $this->headTitle('Administrator - Nomostudio.com - LiveSite - Create by Nopbongdem'); ?>
+        <?php echo $this->headMeta()->appendName('viewport', 'Administrator - Nomostudio.com'); ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->baseUrl() . 'favicon.ico'))
+                ->prependStylesheet($this->baseUrl() . '/public/css/bootstrap-responsive.css')
+                ->prependStylesheet($this->baseUrl() . '/public/css/style.css')
+                ->prependStylesheet($this->baseUrl() . '/public/css/bootstrap.css')
+                ->prependStylesheet($this->baseUrl() . '/public/admin/css/site.admin.css')
+        //->prependStylesheet($this->baseUrl() . '/css/docs.css')
+        ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()->prependFile($this->baseUrl() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->baseUrl() . '/js/jquery-1.7.2.min.js')
+                ->prependFile($this->baseUrl() . '/js/bootstrap.js')
+                ->prependFile($this->baseUrl() . '/js/bootstrap.min.js')
+                ->prependFile($this->baseUrl() . '/editor/ckeditor/ckeditor.js')
+                ->prependFile($this->baseUrl() . '/editor/ckfinder/ckfinder.js')
+        ?>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">                                        
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a class="" href="<?php echo $this->baseUrl() . '/admin/' ?>"><i class="icon-home"></i> <?php echo $this->translate('Admin'); ?></a></li>
+                            <li><a href="<?php echo $this->url(array('module' => 'home', 'controller' => 'index')) ?>"><?php echo $this->translate('Home') ?></a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-login">        
+                <div class="navbar navbar-inverse">
+                    <div class="container">
+                        <div class="alert alert-info">
+                            <?php echo $this->translate('Welcome'); ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; Design by Duong The email <a href="#">Mr.theak007@gmail.com</a>. <?php echo $this->translate('All rights reserved.') ?></p>
+            </footer>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

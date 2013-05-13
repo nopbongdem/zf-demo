@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Segoe UI;
+    font-size: 16px;
+}
+
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+ul.navigation-menu{
+    display: inline-block;	
+}
+
+ul.navigation-menu li a{
+    text-decoration: none;
+    color: #FFF;
+    white-space: nowrap;
+}
+
+ul.navigation-menu li{	
+    background-color: #393939;
+    display: block;	
+    padding: 6px 15px;
+    float: left;
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+ul.navigation-menu > li.list-child,
+ul.navigation-menu > li.list-child:hover{
+    background-image: url("../img/arrow-bottom.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+ul.navigation-menu ul li.list-child{
+    background-image: url("../img/arrow-right.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+ul.navigation-menu li ul{		
+    display: none;
+}
+
+ul.navigation-menu ul{
+    width: 150px;
+    white-space: nowrap;
+}
+
+ul.navigation-menu li ul li{
+    width: 100%;	
+}
+
+ul.navigation-menu ul ul{
+    display: none;
+}
+
+ul.navigation-menu > li > ul{
+    top: auto;
+    padding-top: 6px;
+    margin-left: -15px;
+    display: none;
+    position: absolute;
+    z-index: 999;
+}
+
+ul.navigation-menu li ul li ul{	
+    top: 0;
+    left: 150px;
+    position: absolute;	
+    margin-left: 30px;
+}
+
+ul.navigation-menu li:hover{
+    background: #0066CC;
+}
+
+ul.navigation-menu > li:hover > ul,
+ul.navigation-menu > li > ul > li:hover > ul,
+ul.navigation-menu > li > ul > li > ul > li:hover > ul,
+ul.navigation-menu > li > ul > li > ul > li > ul > li:hover > ul,
+ul.navigation-menu > li > ul > li > ul > li > ul > li > ul > li:hover > ul,
+ul.navigation-menu > li > ul > li > ul > li > ul > li > ul > li > ul > li:hover > ul{
+    display: block;
+}
+
+

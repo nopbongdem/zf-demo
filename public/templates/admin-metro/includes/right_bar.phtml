@@ -1,0 +1,14 @@
+<div class="sidebar-right">
+    <div class="in-righr-bar">
+        <?php
+        if ($this->add) {
+            ?>
+            <a class="btn" href="<?php echo $this->url(array('action' => "create")) ?>"><?php echo $this->translate->_($this->add); ?></a>
+        <?php } ?>    
+        <?php
+        if ($this->back) {
+            ?>
+            <a class="btn" href="<?php echo $this->currentController; ?>"><?php echo $this->back ?></a>
+        <?php } ?>  
+    </div>    
+</div>

@@ -1,0 +1,38 @@
+<?php echo $this->doctype('HTML5'); ?>  
+<html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+        <?php echo $this->headTitle('Demo'); ?>
+        <?php echo $this->headMeta()->appendName('viewport', 'Administrator - Nomostudio.com'); ?>
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headLink() ?>  
+        <?php echo $this->headStyle() ?>  
+        <?php echo $this->headScript() ?>  
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->baseUrl() . 'favicon.ico'))
+                ->prependStylesheet($this->baseUrl() . '/public/css/bootstrap-responsive.css')
+                ->prependStylesheet($this->baseUrl() . '/public/css/bootstrap.css')
+                ->prependStylesheet($this->baseUrl() . '/public/css/docs.css')
+                ->prependStylesheet($this->baseUrl() . '/public/admin/css/site.admin.css')
+        ?>
+        <?php
+        echo $this->headScript()->prependFile($this->baseUrl() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->baseUrl() . '/public/js/bootstrap.js')
+                ->prependFile($this->baseUrl() . '/public/js/functions.js')
+                ->prependFile($this->baseUrl() . '/public/js/jquery.nestable.js')
+                ->prependFile($this->baseUrl() . '/public/js/jquery-1.7.2.min.js')        
+        ?>
+    </head>  
+    <body>          
+
+
+        <?php echo $this->layout()->content ?>       
+        
+        <footer>
+            <div class="container">
+                <p>&copy; Design by Duong The email <a href="mailto:mr.theak007@gmail.com">Mr.theak007@gmail.com</a>. <?php echo $this->translate('All rights reserved.') ?></p>                                    
+            </div>
+        </footer>        
+    </body>  
+</html>

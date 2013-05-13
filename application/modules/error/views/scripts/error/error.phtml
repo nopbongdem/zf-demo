@@ -1,0 +1,23 @@
+
+<a class="back" href="<?php echo $this->baseUrl() . '/admin/'; ?>"><i class="icon-arrow-left-4"></i> <?php echo $this->translate->_('Back'); ?></a>
+<div class="wrapper-error">
+
+    <h1><?php echo $this->translate->_("An error occurred"); ?></h1>
+    <h2><?php echo $this->translate->_($this->message); ?></h2>
+
+    <?php if (isset($this->exception)): ?>
+
+        <h3><?php echo $this->translate->_("Exception information"); ?></h3>
+        <p class="error-msg">
+            <b><?php echo $this->translate->_("Message"); ?>:</b> <?php echo $this->exception->getMessage() ?>
+        </p>                
+        <h3><?php echo $this->translate->_('Stack trace'); ?>:</h3>
+        <pre><?php echo $this->exception->getTraceAsString() ?>
+        </pre>
+
+        <h3><?php echo $this->translate->_('Request parameters'); ?>:</h3>
+        <pre><?php echo $this->escape(var_export($this->request->getParams(), true)) ?>
+        </pre>
+
+    <?php endif ?>
+</div>

@@ -1,0 +1,29 @@
+<?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$form = $this->form;
+?>
+<form class="form-login" method="<?php echo $form->getMethod(); ?>" action="">
+    <table class="">
+        <tr>
+            <td><?php echo $this->translate->_("Username") ?> :</td>
+            <td><?php echo $form->username; ?></td>
+        </tr>
+        <tr>
+            <td><?php echo $this->translate->_("Password") ?> :</td>
+            <td><?php echo $form->password; ?></td>
+        </tr>
+        <tr>            
+            <td colspan="2">
+                
+                    <?php echo $form->remember; ?> <?php echo $this->translate->_("Remember account"); ?>.
+            </td>
+        </tr>
+        <tr>            
+            <td colspan="2"><?php echo $form->submit; ?></td>
+        </tr>
+    </table>    
+</label>
+</form>

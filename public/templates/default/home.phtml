@@ -1,0 +1,20 @@
+<?php echo $this->render("includes/header.phtml"); ?>
+<div class="container">
+    <?php
+//$partial = array('nav.phtml', 'default');
+//$this->navigation()->menu()->setPartial($partial);
+//echo $this->navigation()->menu()->render();            
+//    $menu = $this->navigation()->menu();
+//    $vertical = $menu->setUlClass('dropdown-menu');
+//    echo $vertical;
+//echo $this->navigation()->menu()->setPartial(array('nav.phtml','default'));
+    ?>
+
+    <?php //echo $this->placeholder('cache') ?>
+    <?php echo $this->layout()->cache ?> 
+    <?php echo $this->layout()->content ?>              
+
+</div>
+
+
+<?php echo $this->render("includes/footer.phtml"); ?>

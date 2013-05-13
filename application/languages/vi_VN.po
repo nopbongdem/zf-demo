@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZF\n"
+"POT-Creation-Date: 2013-05-13 21:43+0700\n"
+"PO-Revision-Date: 2013-05-13 21:44+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: E:/xampp/htdocs/zf-demo\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: application\n"
+
+#: application/languages/lang.phtml:3
+msgid "Books"
+msgstr "Sách"
+
+#: application/languages/lang.phtml:4
+msgid "Create"
+msgstr "Tạo mới"
+
+#: application/languages/lang.phtml:5
+msgid "Navigation"
+msgstr "Giao diện"
+
+#: application/languages/lang.phtml:6
+msgid "User Management"
+msgstr "Quản lý User"
+
+#: application/languages/lang.phtml:7
+msgid "Groups Management"
+msgstr "Quản lý Nhóm"
+
+#: application/languages/lang.phtml:8
+msgid "Groups Permission"
+msgstr "Quản lý quyền nhóm"
+
+#: application/languages/lang.phtml:9
+msgid "System Administration"
+msgstr "Quản trị hệ thống"
+
+#: application/languages/lang.phtml:10
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#: application/languages/lang.phtml:11
+msgid "Action Management"
+msgstr "Quản lý tiến trình"
+
+#: application/languages/lang.phtml:12
+msgid "Add new"
+msgstr "Thêm mới"
+
+#: application/languages/lang.phtml:13
+#: application/modules/admin/views/scripts/groups-permission-manager/get.phtml:32
+msgid "Save"
+msgstr "Lưu"
+
+#: application/languages/lang.phtml:14
+#: application/modules/admin/views/scripts/group-permission/get.phtml:46
+msgid "Update"
+msgstr "Cập nhật"
+
+#: application/languages/lang.phtml:15
+msgid "Save change"
+msgstr "Lưu thay đổi"
+
+#: application/languages/lang.phtml:16
+msgid "Clear cache"
+msgstr "Xóa cache"
+
+#: application/languages/lang.phtml:17
+msgid "All"
+msgstr "Tất cả"
+
+#: application/languages/lang.phtml:18
+msgid "Today"
+msgstr "Hôm nay"
+
+#: application/languages/lang.phtml:19
+msgid "Category"
+msgstr "Thể loại"
+
+#: application/languages/lang.phtml:20
+msgid "Content"
+msgstr "Nội dung"
+
+#: application/languages/lang.phtml:21
+#: application/modules/error/views/scripts/error/error.phtml:5
+msgid "An error occurred"
+msgstr "Có lỗi xảy ra"
+
+#: application/languages/lang.phtml:22
+msgid "Application error"
+msgstr "Lỗi ứng dụng"
+
+#: application/languages/lang.phtml:23
+#: application/modules/error/views/scripts/error/error.phtml:10
+msgid "Exception information"
+msgstr "Ngoại lệ đưa ra"
+
+#: application/languages/lang.phtml:24
+#: application/modules/error/views/scripts/error/error.phtml:12
+msgid "Message"
+msgstr "Tin nhắn"
+
+#: application/languages/lang.phtml:25
+#: application/modules/error/views/scripts/error/error.phtml:18
+msgid "Request parameters"
+msgstr "Thông số yêu cầu"
+
+#: application/languages/lang.phtml:26
+msgid "Page not found"
+msgstr "Không tìm thấy trang"
+
+#: application/modules/admin/views/scripts/admin-user-management/edit.phtml:4
+#: application/modules/admin/views/scripts/admin-user-management/get.phtml:6
+#: application/modules/error/views/scripts/error/error.phtml:2
+msgid "Back"
+msgstr "Trở về"
+
+#: application/modules/admin/views/scripts/login/index.phtml:11
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+#: application/modules/admin/views/scripts/login/index.phtml:15
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: application/modules/admin/views/scripts/login/index.phtml:21
+msgid "Remember account"
+msgstr "Ghi nhớ tài khoản"
+
+#: application/modules/error/views/scripts/error/error.phtml:14
+msgid "Stack trace"
+msgstr ""
+
+#~ msgid "Home"
+#~ msgstr "Trang chủ"

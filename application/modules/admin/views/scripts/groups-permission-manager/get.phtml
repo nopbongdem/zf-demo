@@ -1,0 +1,55 @@
+
+<?php
+$gPermis = new Nop_Db_Table_GroupsPermission();
+$list = $gPermis->getPermisByGroup($this->user['id']);
+?>
+
+<div class="demo-section">
+    <h3><?php echo $this->user['name'] ?></h3>
+
+    <label for="required">Danh sách quyền quản trị</label>
+    <select id="required" multiple="multiple" data-placeholder="Chọn quyền quản trị...">
+        <?php foreach ($this->data as $item) { ?>
+
+            <option value="<?php echo $item['id'] ?>"
+            <?php
+            if ($list != null) {
+                foreach ($list as $items) {
+                    if ($item['id'] == $items['permission_id']) {
+                        echo "selected";
+                        break;
+                    }
+                }
+            }
+            ?>
+                    >
+                        <?php echo $item['description']; ?>
+            </option>
+            <?php
+        }
+        ?>        
+    </select>    
+    <button class="k-button" id="get"><?php echo $this->translate->_("Save"); ?></button>
+
+</div>
+<div class="console"></div>
+
+
+<script type="text/javascript">
+    window.onload = function() {
+        var required = $("#required").kendoMultiSelect().data("kendoMultiSelect");
+        var add = "<?php echo $this->currentController . '/add' ?>";
+        var id = "<?php echo $this->user['id'] ?>";
+        $("#get").click(function() {
+            var value = required.value();
+            $.ajax({
+                type: 'POST',
+                url: add,
+                data: ({value: value, id: id}),
+                success: function() {
+                    kendoConsole.log("Cập nhật thành công!");
+                }
+            });
+        });
+    };
+</script>

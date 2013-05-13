@@ -1,0 +1,31 @@
+
+
+<?php echo $this->doctype(); ?>  
+<html lang="en">  
+    <head>          
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headMeta(); ?>
+        <?php
+        echo $this->headLink()->appendStylesheet("/public/templates/home/css/styles.css", 'screen')
+                ->appendStylesheet("/public/templates/home/css/icomoon.css", 'screen');
+        ?>  
+        <?php echo $this->headStyle() ?>  
+        <?php echo $this->headScript() ?>          
+        <?php
+        ?>
+        <style type="text/css">
+            /*this must be set so that the loading div
+              can be height:100% */
+
+        </style>
+
+    </head>  
+
+    <body>           
+        <div class="error-container">
+            <?php
+            echo $this->layout()->content;
+            ?>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+
+<?php
+$gPermis = new Nop_Db_Table_GroupsPermission();
+$list = $gPermis->getPermisByGroup($this->group['id']);
+//$belog = new Nop_Db_Table_AuthBelong();
+//$listbelog = $belog->getAuthBelogByGroup($this->group['id']);
+if ($list != null) {
+    foreach ($list as $val) {
+        $arr[] = $val['permission_id'];
+    }
+}
+?>
+
+<h3><?php echo $this->group['name'] ?></h3>
+<form onchange="change();" name="permission" id="permission">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Action</th>
+            <th>Description</th>
+            <th>
+                <input id="checkAll" name="checkAll" onclick="Check(document.permission.check);" type="checkbox">                
+            </th>
+        </tr>
+        <?php
+        foreach ($this->data as $item) {
+
+            $module = !empty($item['module']) ? $item['module'] : "index";
+            $controller = !empty($item['controller']) ? $item['controller'] : "index";
+            $action = !empty($item['action']) ? $item['action'] : "index";
+            ?>
+            <tr>
+                <td><a href="#"><?php echo $module . "/" . $controller . "/" . $action ?></a></td>
+                <td><?php echo $item['description'] ?></td>
+                <td><input <?php
+                    if (isset($arr)) {
+                        if (in_array($item['id'], $arr))
+                            echo 'checked="checked"';
+                    }
+                    ?> type="checkbox" name="check" id="check" value="<?php echo $item['id']; ?>" />
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+
+</form>
+<button id="update"><?php echo $this->translate->_("Update"); ?></button>
+
+<div class="console"></div>
+
+<script type="text/javascript">
+
+    function Check(chk) {
+        // Nếu checkbox có tên checkAll được check
+        if (document.permission.checkAll.checked === true) {
+            for (i = 0; i < chk.length; i++) // chạy vòng lặp để check tất cả
+                chk[i].checked = true;
+        } else {
+            for (i = 0; i < chk.length; i++) // chạy vòng lặp để uncheck tất cả
+                chk[i].checked = false;
+        }
+    }
+
+//    function CheckAll(chk) {
+//        for (i = 0; i < chk.length; i++)
+//            chk[i].checked = true;
+//    }
+//
+//
+//    function UnCheckAll(chk) {
+//        for (i = 0; i < chk.length; i++)
+//            chk[i].checked = false;
+//    }
+    $(document).ready(function() {
+
+
+        $('button#update').click(function() {
+            var c_value = new Array();
+            for (var i = 0; i < document.permission.check.length; i++) {
+                if (document.permission.check[i].checked === true) {
+                    c_value[i] = document.permission.check[i].value;
+                }
+            }
+            var add = "<?php echo $this->currentController . '/add' ?>";
+            var id = "<?php echo $this->group['id'] ?>";
+            var value = c_value;
+            $.ajax({
+                type: 'POST',
+                url: add,
+                data: ({value: value, id: id}),
+                success: function() {
+                    kendoConsole.log("Cập nhật thành công!");
+                }
+            });
+        });
+    });
+</script>

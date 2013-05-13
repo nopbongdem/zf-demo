@@ -1,0 +1,15 @@
+<?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+<div class="sidebar-left">
+    <div class="menu-left">
+        <?php
+        $menu = $this->navigation()->menu();
+        $vertical = $menu->setUlClass('accordion');
+        echo $vertical;
+        ?>
+    </div>
+</div>

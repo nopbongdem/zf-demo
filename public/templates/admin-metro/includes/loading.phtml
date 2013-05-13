@@ -1,0 +1,63 @@
+<div id="window-loading">
+
+    <div id="loading" class="loading-invisible">
+        <div id="loaderImage"></div>
+        <script type="text/javascript">
+            var cSpeed = 6;
+            var cWidth = 65;
+            var cHeight = 65;
+            var cTotalFrames = 65;
+            var cFrameWidth = 65;
+            var cImageSrc = '<?php echo $this->baseUrl() . "/public/templates/admin-metro/images/sprites.png"; ?>';
+
+            var cImageTimeout = false;
+
+            function startAnimation() {
+
+                document.getElementById('loaderImage').innerHTML = '<canvas id="canvas" width="' + cWidth + '" height="' + cHeight + '"><p>Your browser does not support the canvas element.</p></canvas>';
+
+                //FPS = Math.round(100/(maxSpeed+2-speed));
+                FPS = Math.round(100 / cSpeed);
+                SECONDS_BETWEEN_FRAMES = 1 / FPS;
+                g_GameObjectManager = null;
+                g_run = genImage;
+
+                g_run.width = cTotalFrames * cFrameWidth;
+                genImage.onload = function() {
+                    cImageTimeout = setTimeout(fun, 0);
+                };
+                initCanvas();
+            }
+
+
+            function imageLoader(s, fun)//Pre-loads the sprites image
+            {
+                clearTimeout(cImageTimeout);
+                cImageTimeout = 0;
+                genImage = new Image();
+                genImage.onload = function() {
+                    cImageTimeout = setTimeout(fun, 0);
+                };
+                genImage.onerror = new Function('alert(\'Could not load the image\')');
+                genImage.src = s;
+            }
+
+            //The following code starts the animation
+            new imageLoader(cImageSrc, 'startAnimation()');
+        </script>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("loading").className = "loading-visible";
+        var hideDiv = function() {
+            document.getElementById("loading").className = "loading-invisible";
+        };
+        var oldLoad = window.onload;
+        var newLoad = oldLoad ? function() {
+            hideDiv.call(this);
+            oldLoad.call(this);
+        } : hideDiv;
+        //window.onload = setInterval(newLoad, 1200);
+        window.onload = newLoad;
+    </script>
+
+</div>

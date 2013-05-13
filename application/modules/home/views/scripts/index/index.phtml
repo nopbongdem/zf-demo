@@ -1,0 +1,121 @@
+<div class="container-fluid">
+      <div class="row-fluid">
+         <div class="metro span12">
+   
+            <header>
+               <h2>Grid Layout</h2>
+               <p>Basic sample for simple ListView into <em>Grid layout</em></p>
+            </header>
+   
+            <div id="listview-grid-demo" class="listview-container grid-layout">
+               <div class="mediumListIconTextItem">
+                  <img src="holder.js/60x60" class="mediumListIconTextItem-Image" />
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <img src="holder.js/60x60" class="mediumListIconTextItem-Image" />
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <img src="holder.js/60x60" class="mediumListIconTextItem-Image" />
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+   
+               <div class="mediumListIconTextItem">
+                  <div class="icon-google-plus-3 mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <div class="icon-facebook-2 mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <div class="icon-twitter-2 mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+   
+               <div class="mediumListIconTextItem">
+                  <div class="icon-images mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <div class="icon-movie mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+               <div class="mediumListIconTextItem">
+                  <div class="icon-chart  mediumListIconTextItem-Image" ></div>
+                  <div class="mediumListIconTextItem-Detail">
+                     <h4>Title</h4>
+                     <h6>Lorem ipsum sin ut dolorem</h6>
+                  </div>
+               </div>
+   
+            </div>
+   
+            <br/>
+            <h3>Enabling selection mode</h3>
+            <p>To enabling the toggle selection simply use a script like this:</p>
+   <pre class="prettyprint linenums">
+   $('#listview-grid-demo').on('click', '.mediumListIconTextItem', function(e){
+      e.preventDefault();
+      $(this).toggleClass('selected');
+   });
+   </pre>
+   
+            <span class="label label-important">In the next version there will be a jQuery plugin to expand these functionality.</span>
+   
+   
+         </div>
+      </div>
+   </div>
+   <div id="charms" class="win-ui-dark">
+   
+      <div id="theme-charms-section" class="charms-section">
+         <div class="charms-header">
+            <a href="#" class="close-charms win-command">
+               <span class="win-commandimage win-commandring">&#xe05d;</span>
+            </a>
+            <h2>Settings</h2>
+         </div>
+   
+         <div class="row-fluid">
+            <div class="span12">
+   
+               <form class="">
+                  <label for="win-theme-select">Change theme:</label>
+                  <select id="win-theme-select" class="">
+                     <option value="metro-ui-semilight">Semi-Light</option>
+                     <option value="metro-ui-light">Light</option>
+                     <option value="metro-ui-dark">Dark</option>
+                  </select>
+               </form>
+   
+            </div>
+         </div>
+      </div>
+   
+   </div>
